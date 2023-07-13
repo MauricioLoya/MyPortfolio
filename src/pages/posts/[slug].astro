@@ -8,7 +8,7 @@ export async function getStaticPaths() {
 
   return posts.map((post) => ({
     params: { slug: post.slug },
-    props: { post },
+    props: { post},
   }));
 }
 
@@ -26,6 +26,9 @@ const { Content } = await post.render();
       <h1 class="text-md">
         {post.data.title} - {formatDate(post.data.publishedAt)}
       </h1>
+      <p class="text-sm">
+       Author: {post.data.author}
+      </p>
       <p class="italic">{post.data.description}</p>
     </header>
 

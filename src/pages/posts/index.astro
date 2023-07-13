@@ -43,8 +43,9 @@ const posts = await getCollection("posts");
                   />
                 </svg>
               </div>
-            </div>
-            <p>{post.data.description}</p>
+              </div>
+              <p>{post.data.description}</p>
+              <p>{post.data.author}</p>
           </a>
         ))
       }

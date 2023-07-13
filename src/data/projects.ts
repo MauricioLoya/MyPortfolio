@@ -1,27 +1,40 @@
 export type Project = {
-  title: string;
-  techs: string[];
-  link: string;
-  isComingSoon?: boolean;
-};
+  title: string
+  techs: string[]
+  link?: string
+  isComingSoon?: boolean
+}
 
 const projects: Project[] = [
   {
-    title: "Dictionary App",
-    techs: ["ReactJS (NextJS)", "react-query", "zod"],
-    link: "https://github.com/MaeWolff/dictionary-app",
+    title: 'Simple paginated table',
+    techs: ['Vue3', 'Pinia', 'Vite', 'Typescript', 'TailwindCSS', 'Axios'],
+    link: 'https://github.com/MauricioLoya/test-code-stack'
   },
   {
-    title: "Portfolio / Lina BLIDI",
-    techs: ["ReactJS (NextJS)", "TypeScript"],
-    link: "https://www.linablidi.fr/",
+    title: 'SOS Garde',
+    techs: ['NuxtJS 3', 'TailwindCSS', 'GraphQL'],
+    isComingSoon: true
   },
   {
-    title: "Portfolio / Template",
-    techs: ["Astro"],
-    link: "/",
-    isComingSoon: true,
+    title: 'Satstreet Projects - FullStack',
+    techs: [
+      'Vue3',
+      'TypeScript',
+      'TailwindCSS',
+      'Axios',
+      'Vite',
+      'Pinia',
+      'JWT',
+      'NestJS'
+    ],
+    isComingSoon: true
   },
-];
+  {
+    title: 'My portfolio',
+    techs: ['Astro', 'Typescript ', 'TailwindCSS, '],
+    link: 'https://github.com/MauricioLoya/MyPortfolio'
+  }
+]
 
-export default projects;
+export default projects
