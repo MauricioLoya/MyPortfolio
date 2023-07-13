@@ -14,8 +14,8 @@ const theme: Theme = {
   colors: {
     primary: 'lime',
     blur: {
-      top: 'cyan',
-      bottom: 'emerald'
+      top: 'emerald',
+      bottom: 'rose'
     }
   }
 }
