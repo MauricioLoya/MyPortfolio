@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["'Martian Mono', monospace", ...defaultTheme.fontFamily.sans]
+        sans: ['Martian Mono, monospace', ...defaultTheme.fontFamily.sans]
       }
     }
   },
