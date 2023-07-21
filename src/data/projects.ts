@@ -12,6 +12,11 @@ const projects: Project[] = [
     link: 'https://github.com/MauricioLoya/test-code-stack'
   },
   {
+    title: 'Sprint-Rest-Todo (started spring template)',
+    techs: ['Java 17', 'Spring Boot', 'JPA', 'Flyway', 'MySQL', 'Swagger'],
+    link: 'https://github.com/MauricioLoya/Sprint-Rest-Todo'
+  },
+  {
     title: 'SOS Garde',
     techs: ['NuxtJS 3', 'TailwindCSS', 'GraphQL'],
     isComingSoon: true
