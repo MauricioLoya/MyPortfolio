@@ -42,8 +42,13 @@ const projects: Project[] = [
   },
   {
     title: 'My portfolio',
-    techs: ['Astro', 'Typescript ', 'TailwindCSS, '],
+    techs: ['Astro', 'Typescript ', 'TailwindCSS '],
     link: 'https://github.com/MauricioLoya/MyPortfolio'
+  },
+  {
+    title: 'Digital Connect - Landing Page',
+    techs: ['Astro', 'Typescript ', 'TailwindCSS', 'Stripe'],
+    link: 'https://digitalconnectmexico.com'
   }
 ]
 
