@@ -36,6 +36,11 @@ const projects: Project[] = [
     isComingSoon: true
   },
   {
+    title: 'ShortestPathAlgorithmDijkstra',
+    techs: ['Javascript', 'Python'],
+    link: 'https://github.com/MauricioLoya/ShortestPathAlgorithmDijkstra'
+  },
+  {
     title: 'My portfolio',
     techs: ['Astro', 'Typescript ', 'TailwindCSS, '],
     link: 'https://github.com/MauricioLoya/MyPortfolio'
