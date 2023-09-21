@@ -1,8 +1,8 @@
 ---
 title: 'Exploring HTTP Request and Response Interceptors with Axios'
-description: "Description: In this article, we will explore how to use request and response interceptors in HTTP calls using Axios in web development. We'll learn how to add custom logic before making requests and after receiving responses, enhancing our workflow and efficiency in handling HTTP requests."
+description: "In this article, we will explore how to use request and response interceptors in HTTP calls using Axios in web development. We'll learn how to add custom logic before making requests and after receiving responses, enhancing our workflow and efficiency in handling HTTP requests."
 publishedAt: 2023-07-14
-slug: '02-exploring-HTTP-Request-and-Response -Interceptors-with-Axios'
+slug: 'exploring-HTTP-Request-and-Response-Interceptors-with-Axios'
 isPublish: true
 author: 'Mauricio Loya'
 ---

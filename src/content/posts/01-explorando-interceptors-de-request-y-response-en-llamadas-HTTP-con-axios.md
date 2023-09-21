@@ -1,7 +1,7 @@
 ---
 title: 'Explorando Interceptors de Request y Response en llamadas HTTP con Axios (español)'
 publishedAt: 2023-07-14
-description: 'Lorem ipsum dolor sit amet consectetur et ultrices blandit neque ege'
+description: 'En este artículo, exploraremos cómo usar interceptores de solicitud y respuesta en llamadas HTTP utilizando Axios en el desarrollo web. Aprenderemos cómo agregar lógica personalizada antes de realizar solicitudes y después de recibir respuestas, mejorando nuestro flujo de trabajo y eficiencia en el manejo de solicitudes HTTP.'
 slug: 'explorando-interceptors-de-request-y-response-en-llamadas-HTTP-con-axios'
 isPublish: true
 author: 'Mauricio Loya'
