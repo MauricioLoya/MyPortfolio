@@ -49,6 +49,16 @@ const projects: Project[] = [
     title: 'Digital Connect - Landing Page',
     techs: ['Astro', 'Typescript ', 'TailwindCSS', 'Stripe'],
     link: 'https://digitalconnectmexico.com'
+  },
+  {
+    title: 'Solución Fàcil - Landing Page',
+    techs: ['Astro', 'Typescript ', 'TailwindCSS', 'Astro content'],
+    link: 'https://solucion-facil.com/'
+  },
+  {
+    title: 'Mendioleas - Landing Page',
+    techs: ['Astro', 'Typescript ', 'TailwindCSS', 'Firebase', 'Stripe'],
+    link: 'https://mendioleas.com/pricing/'
   }
 ]
 
