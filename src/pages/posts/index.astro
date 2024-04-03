@@ -1,9 +1,9 @@
 ---
-import { getCollection } from "astro:content";
-import Layout from "@/layouts/Layout.astro";
-import formatDate from "@/utils/formatDate";
+import { getCollection } from 'astro:content'
+import Layout from '@/layouts/Layout.astro'
+import formatDate from '@/utils/formatDate'
 
-const posts = await getCollection("posts");
+const posts = await getCollection('posts')
 ---
 
 <Layout title="Template - All Posts">
@@ -12,7 +12,7 @@ const posts = await getCollection("posts");
 
     <article class="flex flex-col gap-4">
       {
-        posts.map((post) => (
+        posts.map(post => (
           <a
             class="group flex flex-col gap-2 border-t border-neutral-700 py-4 transition-all hover:text-neutral-100"
             href={`/posts/${post.slug}`}
@@ -43,9 +43,9 @@ const posts = await getCollection("posts");
                   />
                 </svg>
               </div>
-              </div>
-              <p>{post.data.description}</p>
-              <p>{post.data.author}</p>
+            </div>
+            <p>{post.data.description}</p>
+            <p>{post.data.author}</p>
           </a>
         ))
       }

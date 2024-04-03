@@ -1,55 +1,41 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection } from 'astro:content'
 
-import Layout from "@/layouts/Layout.astro";
-import SocialLinks from "@/components/SocialLinks.astro";
-import PostCard from "@/components/PostCard.astro";
-import ProjectCard from "@/components/ProjectCard.astro";
-import Link from "@/components/shared/Link.astro";
-import convertAsteriskToStrongTag from "@/utils/convertAsteriskToStrongTag";
+import Layout from '@/layouts/Layout.astro'
+import SocialLinks from '@/components/SocialLinks.astro'
+import PostCard from '@/components/PostCard.astro'
+import ProjectCard from '@/components/ProjectCard.astro'
+import Link from '@/components/shared/Link.astro'
+import convertAsteriskToStrongTag from '@/utils/convertAsteriskToStrongTag'
 
-import presentation from "@/data/presentation";
-import projects from "@/data/projects";
+import presentation from '@/data/presentation'
+// import projects from '@/data/projects'
 
-const posts = await getCollection("posts");
+const posts = await getCollection('posts')
+const projects = await getCollection('projects')
 ---
 
 <Layout>
   <main class="flex flex-col gap-20">
+    <h1 class="text-2xl text-neutral-100">Portfolio</h1>
     <article class="flex flex-col gap-8">
       <h1 class="text-3xl text-neutral-100">{presentation.title}</h1>
-      <div class="flex flex-col-reverse justify-center items-center md:justify-between md:flex-row md:items-start gap-4 ">
+      <div
+        class="flex flex-col-reverse items-center justify-center gap-4 md:flex-row md:items-start md:justify-between"
+      >
         <h2
           class="max-w-[60ch] leading-6"
           set:html={convertAsteriskToStrongTag(presentation.description)}
         />
-        <img class="rounded-full shadow-2xl shadow-lime-500/50 hover:-skew-x-2 transition ease-in-out delay-0  hover:-translate-y-1 hover:scale-150 duration-200" src="https://avatars.githubusercontent.com/u/39864828?v=4" width="180" height="180" alt="my-image">
+        <img
+          class="rounded-full shadow-2xl shadow-lime-500/50 transition delay-0 duration-200 ease-in-out hover:-translate-y-1 hover:-skew-x-2 hover:scale-150"
+          src="https://avatars.githubusercontent.com/u/39864828?v=4"
+          width="180"
+          height="180"
+          alt="my-image"
+        />
       </div>
       <SocialLinks />
-    </article>
-
-    <article class="flex flex-col gap-8">
-      <header class="flex w-full flex-row justify-between gap-2">
-        <h3 class="text-lg text-neutral-100">Latest posts</h3>
-        <Link href="/posts" label="See all posts" isUnderline target="_self" />
-      </header>
-      {posts.length === 0 && <p>Soon, stay connected 👀...</p>}
-
-      <section class="flex flex-col gap-4 md:flex-row md:flex-wrap">
-        {
-          posts.length !== 0 &&
-            posts
-              .slice(0, 2)
-              .map((post) => (
-                <PostCard
-                  publishedAt={post.data.publishedAt}
-                  title={post.data.title}
-                  description={post.data.description}
-                  slug={post.slug}
-                />
-              ))
-        }
-      </section>
     </article>
 
     <article class="flex flex-col gap-8">
@@ -63,7 +49,37 @@ const posts = await getCollection("posts");
       <section class="flex flex-col gap-4">
         {
           projects.length !== 0 &&
-            projects.map((project) => <ProjectCard {...project} />)
+            projects.map(project => (
+              <ProjectCard
+                slug={project.slug}
+                title={project.data.title}
+                image={'/img/' + project.data.image}
+                techs={project.data.techs}
+              />
+            ))
+        }
+      </section>
+    </article>
+    <article class="flex flex-col gap-8">
+      <header class="flex w-full flex-row justify-between gap-2">
+        <h3 class="text-lg text-neutral-100">Latest posts</h3>
+        <Link href="/posts" label="See all posts" isUnderline target="_self" />
+      </header>
+      {posts.length === 0 && <p>Soon, stay connected 👀...</p>}
+
+      <section class="flex flex-col gap-4 md:flex-row md:flex-wrap">
+        {
+          posts.length !== 0 &&
+            posts
+              .slice(0, 2)
+              .map(post => (
+                <PostCard
+                  publishedAt={post.data.publishedAt}
+                  title={post.data.title}
+                  description={post.data.description}
+                  slug={post.slug}
+                />
+              ))
         }
       </section>
     </article>

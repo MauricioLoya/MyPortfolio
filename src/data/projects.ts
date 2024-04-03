@@ -51,7 +51,7 @@ const projects: Project[] = [
     link: 'https://digitalconnectmexico.com'
   },
   {
-    title: 'Solución Fàcil - Landing Page',
+    title: 'Solución Fácil - Landing Page',
     techs: ['Astro', 'Typescript ', 'TailwindCSS', 'Astro content'],
     link: 'https://solucion-facil.com/'
   },
