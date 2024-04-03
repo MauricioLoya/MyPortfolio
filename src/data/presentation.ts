@@ -14,7 +14,7 @@ const presentation: Presentation = {
   mail: 'mauloy15@gmail.com',
   title: 'Hi, I’m Mauricio Loya',
   description:
-    'Experienced Software Developer with *expertise in the field*. Proficient in multiple programming languages and dedicated to delivering *high-quality code*. Skilled in problem-solving and collaborating with cross-functional teams to achieve projectobjectives. Passionate about innovation and continuously improving technical skills.Ready to contribute to the success of software development initiatives.',
+    'I am a web developer with **6 years of experience**. Throughout my career, I have achieved significant milestones, such as developing cryptocurrency exchanges for one of the largest **startups in Canada**. Currently, I have optimized error resolution in key processes related to the buying and selling of assets, achieving improved performance and user experience, with a 100% reduction in incidents. **I strive to be efficient in my work and adapt to the needs of each project**, always seeking to contribute my utmost knowledge and skills. I enjoy working on personal projects to continue expanding my competencies as a programmer and web developer. Therefore, my current goals are aimed at collaborating with other innovative companies to generate a **positive impact on clients and stand out in the market**.',
   socials: [
     {
       label: 'Github',
