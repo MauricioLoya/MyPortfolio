@@ -18,4 +18,4 @@ For deployment, I turned to services like Netlify, which greatly eased the proje
 
 [Repository](https://github.com/MauricioLoya/MyPortfolio)
 
-[Live demo](../fakedemo)
+[Live demo](../../fakedemo)
