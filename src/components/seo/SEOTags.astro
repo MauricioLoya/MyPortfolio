@@ -18,14 +18,13 @@ type Props = {
 const { title, description, noindex, og } = Astro.props
 
 const DEFAULT_TITLE_PAGE = 'Mauricio Loya | Software Engineer'
-const DEFAULT_DESCRIPTION_PAGE =
-  'A minimal portfolio template built with Astro and Tailwindcss.'
+const DEFAULT_DESCRIPTION_PAGE = 'Here is my site'
 const DEFAULT_URL_SITE = SITE_URL
 
 const openGraph = {
   title: og?.title || DEFAULT_TITLE_PAGE,
   type: og?.type || 'website',
-  image: og?.image || '/opengraph-image.jpg',
+  image: og?.image || '/opengraph-image.png',
   alt: og?.alt || 'astro portfolio template image',
   url: DEFAULT_URL_SITE,
   description: og?.description || DEFAULT_DESCRIPTION_PAGE
@@ -33,7 +32,11 @@ const openGraph = {
 ---
 
 <head>
-  <script src="https://analytics.ahrefs.com/analytics.js" data-key="GCIjNolLUSV+ODH3iMOl7A" async></script>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <script
+    src="https://analytics.ahrefs.com/analytics.js"
+    data-key="GCIjNolLUSV+ODH3iMOl7A"
+    async></script>
   <SEO
     charset="UTF-8"
     title={title || DEFAULT_TITLE_PAGE}
