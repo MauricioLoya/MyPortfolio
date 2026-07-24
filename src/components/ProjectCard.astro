@@ -19,12 +19,14 @@ const formatTechs = (values: string[]) =>
 <>
   {
     isComingSoon && (
-      <div class="t group flex w-full flex-col justify-between gap-2 rounded-md border border-neutral-700 p-4 md:flex-row md:items-center">
-        <div class="flex flex-col gap-2 md:flex-row md:items-center md:gap-4">
-          <p class="text-neutral-100">{title}</p>
+      <div class="card">
+        <div class="flex items-center justify-between">
+          <div>
+            <h3 class="font-semibold text-cream">{title}</h3>
+            <p class="text-sm text-cream/50 mt-1">{formatTechs(techs)}</p>
+          </div>
+          <span class="px-3 py-1 rounded-full bg-emerald/10 text-emerald text-sm">Próximamente</span>
         </div>
-
-        <p class="w-fit rounded-md bg-neutral-900 px-4 py-1">Soon</p>
       </div>
     )
   }
@@ -32,23 +34,26 @@ const formatTechs = (values: string[]) =>
   {
     !isComingSoon && (
       <a
-        class="group w-full cursor-pointer flex-col justify-between gap-2 rounded-md border border-neutral-700 p-4 transition-all duration-300 hover:-translate-y-2 hover:border-neutral-400 md:flex-row md:items-center"
+        class="group block rounded-xl overflow-hidden border border-white/5 hover:border-emerald/30 transition-colors duration-300"
         href={`/projects/${slug}`}
         rel="noreferrer"
       >
-        <div class="flex flex-col justify-between gap-2 md:flex-row">
-          <p class="text-neutral-100">
-            {title}
-            <br />
-            <small class="text-lime-300">{formatTechs(techs)}</small>
-          </p>
+        <div class="aspect-video bg-slate-900 overflow-hidden">
           <img
             height="144"
             width="208"
-            class="h-36 w-full rounded-md object-cover md:w-52"
+            class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
             src={image}
-            alt="cover-project"
+            alt={title}
+            onerror="this.src='https://via.placeholder.com/400x225/0a0a0b/B87333?text=Proyecto'"
           />
+        </div>
+        
+        <div class="p-4">
+          <h3 class="font-medium text-cream group-hover:text-emerald transition-colors">
+            {title}
+          </h3>
+          <p class="text-xs text-cream/50 mt-1">{formatTechs(techs)}</p>
         </div>
       </a>
     )

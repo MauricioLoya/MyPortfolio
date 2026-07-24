@@ -11,14 +11,21 @@ const { label, isUnderline, ...props } = Astro.props;
 
 <a
   href={props.href}
-  class:list={{
-    ["hover:text-neutral-100 cursor-pointer"]: true,
-    ["underline decoration-dashed underline-offset-8"]: isUnderline,
-  }}
+  class:list={[
+    "cursor-pointer transition-colors duration-200 inline-flex items-center gap-1",
+    isUnderline 
+      ? "text-emerald hover:text-emeraldLight underline decoration-emerald/50 underline-offset-4" 
+      : "text-emerald hover:text-emeraldLight"
+  ]}
   {...props}
   rel="noreferrer"
-  target="_blank"
+  target={props.target || "_blank"}
 >
   {label}
+  {!isUnderline && (
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+    </svg>
+  )}
   <span class="sr-only">{label} link</span>
 </a>

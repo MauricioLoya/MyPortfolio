@@ -1,101 +1,51 @@
 ---
-import { getCollection } from 'astro:content'
-
 import Layout from '@/layouts/Layout.astro'
-import SocialLinks from '@/components/SocialLinks.astro'
-import PostCard from '@/components/PostCard.astro'
+import HeroSection from '@/components/HeroSection.astro'
+import ExperienceSection from '@/components/ExperienceSection.astro'
+import SkillsSection from '@/components/SkillsSection.astro'
+import EducationSection from '@/components/EducationSection.astro'
+import ContactSection from '@/components/ContactSection.astro'
 import ProjectCard from '@/components/ProjectCard.astro'
 import Link from '@/components/shared/Link.astro'
-import convertAsteriskToStrongTag from '@/utils/convertAsteriskToStrongTag'
+import { getCollection } from 'astro:content'
 
-import presentation from '@/data/presentation'
-// import projects from '@/data/projects'
-
-const posts = await getCollection('posts')
 const projects = await getCollection('projects')
 ---
 
 <Layout>
-  <main class="flex flex-col gap-20">
-    <h1 class="text-2xl text-neutral-100">Portfolio</h1>
-    <article class="flex flex-col gap-8">
-      <h1 class="text-3xl text-neutral-100">{presentation.title}</h1>
-      <div
-        class="flex flex-col-reverse items-center justify-center gap-4 md:flex-row md:items-start md:justify-between"
-      >
-        <h2
-          class="max-w-[60ch] leading-6"
-          set:html={convertAsteriskToStrongTag(presentation.description)}
-        />
-        <img
-          class="rounded-full shadow-2xl shadow-lime-500/50 transition delay-0 duration-200 ease-in-out hover:-translate-y-1 hover:-skew-x-2 hover:scale-150"
-          src="https://avatars.githubusercontent.com/u/39864828?v=4"
-          width="180"
-          height="180"
-          alt="my-image"
-        />
+  <div class="space-y-8">
+    <HeroSection />
+    <ExperienceSection />
+    <SkillsSection />
+    <EducationSection />
+    
+    <section class="py-16 md:py-24">
+      <h2 class="text-2xl md:text-3xl font-display font-semibold mb-10">Proyectos Destacados</h2>
+
+      {projects.length === 0 && (
+        <div class="text-center py-12 text-cream/50">
+          <p>Próximamente nuevos proyectos...</p>
+        </div>
+      )}
+
+      <div class="grid md:grid-cols-2 gap-5">
+        {projects.slice(0, 4).map((project) => (
+          <ProjectCard
+            slug={project.slug}
+            title={project.data.title}
+            image={'/img/' + project.data.image}
+            techs={project.data.techs}
+          />
+        ))}
       </div>
-      <SocialLinks />
-    </article>
 
-    <article class="flex flex-col gap-8">
-      <header class="flex w-full flex-row justify-between gap-2">
-        <h3 class="text-lg text-neutral-100">
-          Selected projects ({projects.length})
-        </h3>
-      </header>
-      {projects.length === 0 && <p>Oops, I must work^^^^^</p>}
+      {projects.length > 4 && (
+        <div class="mt-8 text-center">
+          <Link href="/projects" label="Ver todos los proyectos" isUnderline />
+        </div>
+      )}
+    </section>
 
-      <section class="flex flex-col gap-4">
-        {
-          projects.length !== 0 &&
-            projects.map(project => (
-              <ProjectCard
-                slug={project.slug}
-                title={project.data.title}
-                image={'/img/' + project.data.image}
-                techs={project.data.techs}
-              />
-            ))
-        }
-      </section>
-    </article>
-    <article class="flex flex-col gap-8">
-      <header class="flex w-full flex-row justify-between gap-2">
-        <h3 class="text-lg text-neutral-100">Latest posts</h3>
-        <Link href="/posts" label="See all posts" isUnderline target="_self" />
-      </header>
-      {posts.length === 0 && <p>Soon, stay connected 👀...</p>}
-
-      <section class="flex flex-col gap-4 md:flex-row md:flex-wrap">
-        {
-          posts.length !== 0 &&
-            posts
-              .slice(0, 2)
-              .map(post => (
-                <PostCard
-                  publishedAt={post.data.publishedAt}
-                  title={post.data.title}
-                  description={post.data.description}
-                  slug={post.slug}
-                />
-              ))
-        }
-      </section>
-    </article>
-
-    <article class="flex flex-col gap-8">
-      <header class="flex w-full flex-row justify-between gap-2">
-        <h3 class="text-lg text-neutral-100">Get in touch</h3>
-      </header>
-      <p>
-        Email me at <Link
-          href={`mailto:${presentation.mail}`}
-          label={presentation.mail}
-        /> or follow me via my social links.
-      </p>
-
-      <SocialLinks />
-    </article>
-  </main>
+    <ContactSection />
+  </div>
 </Layout>
