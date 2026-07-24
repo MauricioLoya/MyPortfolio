@@ -5,7 +5,7 @@ import presentation from '@/data/presentation'
 const pathname = removeTrailingSlash(Astro.url.pathname)
 
 const navItems = [
-  { href: '/', label: 'Proyectos' },
+  { href: '/projects', label: 'Proyectos' },
   { href: '/posts', label: 'Blog' },
 ]
 ---
@@ -51,12 +51,65 @@ const navItems = [
           Contacto
         </a>
 
-        <button class="md:hidden p-1.5 text-cream/50" aria-label="Menu">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <button 
+          id="menu-toggle"
+          class="md:hidden p-1.5 text-cream/50 hover:text-cream transition-colors"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+        >
+          <svg id="menu-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg id="close-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
       </div>
     </nav>
+
+    <div id="mobile-menu" class="hidden md:hidden pb-4">
+      <ul role="list" class="space-y-2 pt-4 border-t border-white/5">
+        {navItems.map(item => (
+          <li>
+            <a
+              href={item.href}
+              class:list={[
+                'block text-sm transition-colors py-2',
+                pathname === item.href 
+                  ? 'text-emerald font-medium' 
+                  : 'text-cream/50 hover:text-cream'
+              ]}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+        <li>
+          <a
+            href={`mailto:${presentation.email}`}
+            class="block text-sm text-emerald hover:text-emeraldLight transition-colors py-2"
+          >
+            Contacto
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
 </header>
+
+<script>
+  const toggle = document.getElementById('menu-toggle')
+  const menu = document.getElementById('mobile-menu')
+  const menuIcon = document.getElementById('menu-icon')
+  const closeIcon = document.getElementById('close-icon')
+
+  if (toggle && menu && menuIcon && closeIcon) {
+    toggle.addEventListener('click', () => {
+      const isOpen = menu.classList.toggle('hidden')
+      menuIcon.classList.toggle('hidden')
+      closeIcon.classList.toggle('hidden')
+      toggle.setAttribute('aria-expanded', String(!isOpen))
+      toggle.setAttribute('aria-label', isOpen ? 'Abrir menú' : 'Cerrar menú')
+    })
+  }
+</script>
